@@ -1,6 +1,5 @@
 # flask_app.py
 from flask import Flask, request, jsonify
-import os
 from svm_model import predict_result_svm, predict_opt_result_svm
 from dt_model import predict_result_dt, predict_opt_result_dt
 from knn_model import predict_opt_result_knn, predict_result_knn
@@ -156,5 +155,4 @@ def predict_rf():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', debug=True)
